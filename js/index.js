@@ -8,18 +8,15 @@ var registerUserName = document.querySelector("#registerusername");
 var emailUserName = document.querySelector("#email");
 var registerpassword = document.querySelector("#registerpassword");
 
-var loginusername = document.querySelector("#loginusername")
-var loginpassowrd = document.querySelector("#loginpassowrd")
-
-const registerbtn = document.querySelector(".register-btn");
+var loginusername = document.querySelector("#loginusername");
+var loginpassowrd = document.querySelector("#loginpassowrd");
 
 const validUsername = /^\w/;
 const validPassword = /^(?=.*?[0-9])(?=.*?[A-Za-z]).{8,32}$/;
 const validEmail = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm;
 
-const WrongInputs = document.querySelector(".alert");
-
-
+const registerInputs = document.querySelector(".alert");
+const LoginInputs = document.querySelector(".loginalert");
 let allusers = JSON.parse(localStorage.getItem("users")) || [];
 
 registerlink.addEventListener("click", () => {
@@ -81,9 +78,9 @@ function createUser(username, email, pass) {
 }
 
 function alertfunction(massage, backgroundcolor) {
-  WrongInputs.classList.replace("d-none", "d-block");
-  WrongInputs.classList.add(backgroundcolor);
-  WrongInputs.innerHTML = massage;
+  registerInputs.classList.replace("d-none", "d-block");
+  registerInputs.classList.add(backgroundcolor);
+  registerInputs.innerHTML = massage;
 }
 
 function singup() {
@@ -98,14 +95,12 @@ function singup() {
       localStorage.setItem("users", JSON.stringify(allusers));
       resstresgisterform();
       alertfunction("User Added Sucessfuly", "bg-success");
-
     } else {
       alertfunction(
         `This Email is Exist Please Enter another Email`,
         "bg-danger"
       );
     }
-    
   } else {
     alertfunction("Try a Vaild Data ", "bg-danger");
   }
@@ -117,14 +112,13 @@ function resstresgisterform() {
   registerpassword.value = "";
 }
 
-
 function AreEquivlant(loginusername, loginpassword) {
   for (let user = 0; user < allusers.length; user++) {
     if (
       allusers[user].username == loginusername.value &&
       allusers[user].password == loginpassword.value
     ) {
-      localStorage.setItem("userlogin" , user)
+      localStorage.setItem("userlogin", user);
       return true;
     }
   }
@@ -132,11 +126,9 @@ function AreEquivlant(loginusername, loginpassword) {
 }
 
 function signin() {
-  if (AreEquivlant(loginusername , loginpassowrd)) {
-    window.location.href = "../homepage.html"
-  }
-  else{
-    alertfunction("Username and password are not the same.", "bg-danger");
+  if (AreEquivlant(loginusername, loginpassowrd)) {
+    window.location.href = "../homepage.html";
+  } else {
+    LoginInputs.classList.replace('d-none' , 'd-block')
   }
 }
-
