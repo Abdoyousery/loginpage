@@ -1,0 +1,75 @@
+body {
+  background-image: url(../imgs/image\ 1.png);
+  background-position: 0%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: "Montserrat", serif;
+}
+
+.ccard {
+  width: 500px;
+  min-height: 500px;
+  border-radius: 27px;
+  background: linear-gradient(
+    to right,
+    rgba(201, 201, 201, 0.5),
+    rgba(196, 196, 196, 0.1)
+  ) 
+}
+.title {
+  font-family: "Iceland", serif;
+  font-size: 40px;
+}
+.line {
+  width: 150px;
+  height: 1px;
+}
+.head p {
+  font-size: 20px;
+}
+input {
+  background: linear-gradient(
+    to right,
+    rgba(201, 201, 201, 0.5),
+    rgba(196, 196, 196, 0.1)
+  ) !important;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  padding-left: 20px;
+  padding-block: 14px;
+}
+input::placeholder{
+  color: rgba(255, 255, 255 , .5);
+}
+button.w-100{
+  background-color: #A5D9D0;
+  border: none;
+  border-radius: 7px;
+  color: black;
+  font-weight: bold;
+  padding-block: 10px;
+}
+p button{
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.login-form , .register-form {
+  transition: all .5s;
+}
+
+
+@media screen and (max-width: 600px) {
+  body {
+    background-image: url(../imgs/image\ mobile.png);
+    background-position: center;
+  }
+  .ccard{
+    
+    background: rgbA(0, 0, 0,.6);
+  }
+}
